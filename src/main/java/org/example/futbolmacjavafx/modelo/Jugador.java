@@ -10,8 +10,8 @@ public class Jugador {
     private String nacionalidad;
     private String posicion;
     private String dorsal;
-    private Equipo equipo_id;
-    private EquipoPais equipo_pais_id;
+    private Equipo equipo;
+    private EquipoPais equipo_pais;
 
     public Jugador() {
     }
@@ -24,8 +24,8 @@ public class Jugador {
         this.nacionalidad = nacionalidad;
         this.posicion = posicion;
         this.dorsal = dorsal;
-        this.equipo_id = equipo_id;
-        this.equipo_pais_id = equipo_pais_id;
+        this.equipo = equipo_id;
+        this.equipo_pais = equipo_pais_id;
     }
 
     public int getId_jugador() {
@@ -84,20 +84,20 @@ public class Jugador {
         this.dorsal = dorsal;
     }
 
-    public Equipo getEquipo_id() {
-        return equipo_id;
+    public Equipo getEquipo() {
+        return equipo;
     }
 
-    public void setEquipo_id(Equipo equipo_id) {
-        this.equipo_id = equipo_id;
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 
-    public EquipoPais getEquipo_pais_id() {
-        return equipo_pais_id;
+    public EquipoPais getEquipo_pais() {
+        return equipo_pais;
     }
 
-    public void setEquipo_pais_id(EquipoPais equipo_pais_id) {
-        this.equipo_pais_id = equipo_pais_id;
+    public void setEquipo_pais(EquipoPais equipo_pais) {
+        this.equipo_pais = equipo_pais;
     }
 
     @Override
@@ -110,8 +110,8 @@ public class Jugador {
                 ", nacionalidad='" + nacionalidad + '\'' +
                 ", posicion='" + posicion + '\'' +
                 ", dorsal='" + dorsal + '\'' +
-                ", equipo_id=" + equipo_id +
-                ", equipo_pais_id=" + equipo_pais_id +
+                ", equipo=" + equipo + '\'' +
+                ", equipo_pais=" + equipo_pais +
                 '}';
     }
 }

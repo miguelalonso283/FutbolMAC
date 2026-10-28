@@ -48,10 +48,6 @@ public class JugadorController {
     private TextField txtPosicion;
     @FXML
     private TextField txtDorsal;
-    @FXML
-    private TextField txtEquipo_id;
-    @FXML
-    private TextField txtEquipo_pais_id;
     private TableColumn<Jugador,String> colDescripcionJugador;
     JugadorBD jugadorBD;
 

@@ -31,7 +31,7 @@ public class JugadorBD {
                 jugador.setNacionalidad(rs.getString(5));
                 jugador.setPosicion(rs.getString(6));
                 jugador.setDorsal(rs.getString(7));
-                jugador.setEquipo_id(new Equipo(rs.getInt(9),
+                jugador.setEquipo(new Equipo(rs.getInt(9),
                         rs.getString(10), rs.getString(11),
                         rs.getString(12), rs.getString(13),
                         rs.getString(14)));
