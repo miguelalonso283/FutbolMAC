@@ -32,7 +32,7 @@ public class Conexion {
 
     public static void desconectar() {
         try {
-            if (!jdbcConexion.isClosed() && jdbcConexion!=null) {//Cambio: Antes-->(||) Ahora-->(&&)
+            if (jdbcConexion!=null && !jdbcConexion.isClosed()) {//Cambio: Antes-->(||) Ahora-->(&&)
                 jdbcConexion.close(); //Cambio: Antes-->(jdbcConexion==null) Ahora-->(jdbcConexion.close())
             }
         } catch (SQLException e) {
