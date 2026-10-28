@@ -16,7 +16,7 @@
             <children>
                 <!-- Clases de Bootstrap: btn, btn-outline-light, btn-block -->
                 <Button fx:id="btnEquipos" maxWidth="Infinity" text="Equipos" onAction="#mostrarEquipos" styleClass="btn, btn-outline-light" />
-                <Button fx:id="btnJugadores" maxWidth="Infinity" text="👤 Jugadores"  styleClass="btn, btn-outline-light" />
+                <Button fx:id="btnJugadores" maxWidth="Infinity" text="👤 Jugadores" onAction="#mostrarJugadores" styleClass="btn, btn-outline-light" />
 
                 <VBox VBox.vgrow="ALWAYS" /> <!-- Espaciador dinámico -->
 

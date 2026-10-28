@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.futbolmacjavafx.control.JugadorController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <!-- Título principal con estilo Bootstrap -->
+        <Label layoutX="25.0" layoutY="20.0" styleClass="h4, text-primary" text="Mantenimiento de Jugadores" />
+
+        <!-- Contenedor del Formulario -->
+        <VBox layoutX="25.0" layoutY="65.0" spacing="10.0" prefWidth="450.0">
+            <children>
+                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="Nombre:" prefWidth="70.0" />
+                        <TextField fx:id="txtNombreJugador" HBox.hgrow="ALWAYS" styleClass="form-control"  />
+                        <TextField fx:id="txtApellidos" />
+                        <TextField fx:id="txtFechaNacimiento" />
+                        <TextField fx:id="txtNacionalidad" />
+                        <TextField fx:id="txtPosicion" />
+                        <TextField fx:id="txtDorsal" />
+                        <TextField fx:id="txtEquipo_id" />
+                        <TextField fx:id="txtEquipo_pais_id" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <!-- Fila de Botones con Clases de Bootstrap -->
+        <HBox layoutX="25.0" layoutY="165.0" spacing="10.0">
+            <children>
+                <Button fx:id="btnGuardar" text="Añadir" onAction="#guardar" styleClass="btn, btn-primary" />
+                <Button fx:id="btnModificar" text="Actualizar" onAction="#modificar" styleClass="btn, btn-warning" />
+                <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" styleClass="btn, btn-danger" />
+                <Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiarFormulario" styleClass="btn, btn-secondary" />
+            </children>
+        </HBox>
+
+        <!-- Tabla de Datos Integrada -->
+        <TableView fx:id="tablaJugador" layoutX="25.0" layoutY="225.0" prefHeight="300.0" prefWidth="660.0" onMouseClicked="#seleccionarFila" style="-fx-box-border: transparent;">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colIdJugador" prefWidth="70.0" text="ID" />
+                <TableColumn fx:id="colNombreJugador" prefWidth="280.0" text="Nombre del Jugador" />
+                <TableColumn fx:id="colApellidos" prefWidth="280.0" text="Apellidos" />
+                <TableColumn fx:id="colFechaNacimiento" prefWidth="280.0" text="Fecha de Nacimiento" />
+                <TableColumn fx:id="colNacionalidad" prefWidth="280.0" text="Nacionalidad" />
+                <TableColumn fx:id="colPosicion" prefWidth="90.0" text="Posición" />
+                <TableColumn fx:id="colDorsal" prefWidth="70.0" text="Dorsal" />
+                <TableColumn fx:id="colEquipo_id" prefWidth="70.0" text="Id del Equipo" />
+                <TableColumn fx:id="colEquipo_pais_id" prefWidth="70.0" text="Id del Equipo del País" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

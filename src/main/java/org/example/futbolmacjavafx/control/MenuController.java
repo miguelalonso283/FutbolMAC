@@ -16,6 +16,10 @@ public class MenuController {
         cargarVista("/org/example/futbolmacjavafx/equipos-view.fxml");
     }
 
+    public void mostrarJugadores(javafx.event.ActionEvent actionEvent) {
+        cargarVista(("/org/example/futbolmacjavafx/jugadores-view.fxml"));
+    }
+
     private void cargarVista(String fxmlPath) {
 
         try {
