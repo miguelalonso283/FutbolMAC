@@ -23,4 +23,40 @@ public class PaisDB {
         }
         return paises;
     }
+
+    public static int insertarPais(Pais pais) {
+        String sql = "INSERT INTO pais (nombre_pais) VALUES (?)";
+        try (Connection conexion = conectar();
+             PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setString(1, pais.getNombrePais());
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+    public static int modificarPais(Pais pais) {
+        String sql = "UPDATE pais SET nombre_pais = ? WHERE id_pais = ?";
+        try (Connection conexion = conectar();
+             PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setString(1, pais.getNombrePais());
+            ps.setInt(2, pais.getIdPais());
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
+    public static int eliminarPais(int idPais) {
+        String sql = "DELETE FROM pais WHERE id_pais = ?";
+        try (Connection conexion = conectar();
+             PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setInt(1, idPais);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
 }

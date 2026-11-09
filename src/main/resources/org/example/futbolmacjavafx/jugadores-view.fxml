@@ -19,12 +19,12 @@
             <children>
                 <HBox spacing="15.0" alignment="CENTER_LEFT">
                     <children>
-                        <Label text="Nombre:" prefWidth="70.0" />
-                        <TextField fx:id="txtNombreJugador" HBox.hgrow="ALWAYS" styleClass="form-control"  />
-                        <TextField fx:id="txtApellidos" />
-                        <TextField fx:id="txtFechaNacimiento" />
-                        <TextField fx:id="txtPosicion" />
-                        <TextField fx:id="txtDorsal" />
+                        <TextField fx:id="txtNombreJugador" promptText="Nombre" />
+                        <TextField fx:id="txtApellidos" promptText="Apellidos" />
+                        <TextField fx:id="txtFechaNacimiento" promptText="AAAA-MM-DD" />
+                        <TextField fx:id="txtPosicion" promptText="Posición" />
+                        <TextField fx:id="txtDorsal" promptText="Dorsal" />
+                        <ComboBox fx:id="cmbEquipo" prefWidth="180.0" promptText="Equipo" />
                     </children>
                 </HBox>
             </children>
@@ -50,10 +50,10 @@
                 <TableColumn fx:id="colNombreJugador" prefWidth="240.0" text="Nombre del Jugador" />
                 <TableColumn fx:id="colApellidos" prefWidth="280.0" text="Apellidos" />
                 <TableColumn fx:id="colFechaNacimiento" prefWidth="200.0" text="Fecha Nacimiento" />
-                <TableColumn fx:id="Nacionalidad" prefWidth="220.0" text="Nacionalidad" />
+                <TableColumn fx:id="colNacionalidad" prefWidth="220.0" text="Nacionalidad" />
                 <TableColumn fx:id="colPosicion" prefWidth="100.0" text="Posición" />
                 <TableColumn fx:id="colDorsal" prefWidth="90.0" text="Dorsal" />
-                <TableColumn fx:id="colEquipo_id" prefWidth="120.0" text="Id Equipo" />
+                <TableColumn fx:id="colEquipo" prefWidth="120.0" text="Id Equipo" />
             </columns>
         </TableView>
         <!-- Nacionalidades del jugador seleccionado -->
