@@ -84,4 +84,10 @@ public class JugadorController {
 
     public void seleccionarFila(MouseEvent mouseEvent) {
     }
+
+    public void anadirNacionalidad(ActionEvent actionEvent) {
+    }
+
+    public void quitarNacionalidad(ActionEvent actionEvent) {
+    }
 }

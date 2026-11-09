@@ -16,28 +16,36 @@ import static org.example.futbolmacjavafx.config.Conexion.desconectar;
 public class JugadorBD {
     public static List<Jugador> consultarJugadores() {
         List<Jugador> jugadores = new ArrayList<>();
-        ResultSet rs = null;
-        try {
-            Connection conexion = conectar();
-            Statement st = conexion.createStatement();
-            String sql = "SELECT * FROM jugadores";
-            rs = st.executeQuery(sql);
+        String sql = "SELECT j.id_jugador, j.nombre_jugador, j.apellidos, j.fecha_nacimiento, " +
+                "j.posicion, j.dorsal, " +
+                "e.id_equipo, e.nombre_equipo, e.siglas, e.ciudad, e.estadio, e.liga, " +
+                "GROUP_CONCAT(p.nombre_pais ORDER BY p.nombre_pais SEPARATOR ', ') AS nacionalidades " +
+                "FROM jugadores j " +
+                "LEFT JOIN equipos e ON j.equipo_id = e.id_equipo " +
+                "LEFT JOIN nacionalidad n ON n.jugador_id = j.id_jugador " +
+                "LEFT JOIN pais p ON p.id_pais = n.pais_id " +
+                "GROUP BY j.id_jugador, e.id_equipo";
+        try (Connection conexion = conectar();
+             Statement st = conexion.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
                 Jugador jugador = new Jugador();
-                jugador.setId_jugador(rs.getInt(1));
-                jugador.setNombreJugador(rs.getString(2));
-                jugador.setApellidos(rs.getString(3));
-                jugador.setFechaNacimiento(rs.getDate(4));
-                jugador.setNacionalidad(rs.getString(5));
-                jugador.setPosicion(rs.getString(6));
-                jugador.setDorsal(rs.getString(7));
-                jugador.setEquipo(new Equipo(rs.getInt(9),
-                        rs.getString(10), rs.getString(11),
-                        rs.getString(12), rs.getString(13),
-                        rs.getString(14)));
+                jugador.setId_jugador(rs.getInt("id_jugador"));
+                jugador.setNombreJugador(rs.getString("nombre_jugador"));
+                jugador.setApellidos(rs.getString("apellidos"));
+                jugador.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                jugador.setPosicion(rs.getString("posicion"));
+                jugador.setDorsal(rs.getString("dorsal"));
+                jugador.setNacionalidades(rs.getString("nacionalidades")); // null si no tiene
+
+                int idEquipo = rs.getInt("id_equipo");
+                if (!rs.wasNull()) {   // jugador sin equipo -> equipo = null
+                    jugador.setEquipo(new Equipo(idEquipo, rs.getString("nombre_equipo"),
+                            rs.getString("siglas"), rs.getString("ciudad"),
+                            rs.getString("estadio"), rs.getString("liga")));
+                }
                 jugadores.add(jugador);
             }
-            desconectar();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
