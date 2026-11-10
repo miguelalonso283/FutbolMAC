@@ -72,11 +72,6 @@ public class JugadorController {
         tablaJugador.setItems(jugador);
     }
 
-    private void cargarNacionalidades(int idJugador) {
-        listaPaises.setItems(FXCollections.observableArrayList(
-                NacionalidadDB.consultarPaisesDeJugador(idJugador)));
-    }
-
     public void guardar(ActionEvent actionEvent) {
         String nombre = txtNombreJugador.getText().trim();
         String apellidos = txtApellidos.getText().trim();
@@ -138,6 +133,11 @@ public class JugadorController {
     }
 
     public void eliminar(ActionEvent actionEvent) {
+    }
+
+    private void cargarNacionalidades(int idJugador) {
+        listaPaises.setItems(FXCollections.observableArrayList(
+                NacionalidadDB.consultarPaisesDeJugador(idJugador)));
     }
 
     public void seleccionarFila(MouseEvent mouseEvent) {
