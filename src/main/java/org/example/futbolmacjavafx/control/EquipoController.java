@@ -67,14 +67,26 @@ public class EquipoController {
         cargarDatosTabla();
         txtNombreEquipo.clear();
     }
+
     public void modificar(ActionEvent actionEvent) {
     }
+
     public void eliminar(ActionEvent actionEvent) {
     }
+
     public void limpiarFormulario(ActionEvent actionEvent) {
+        limpiar();
     }
 
-    public void seleccionarFila(MouseEvent mouseEvent) {
+    private void limpiar() {
+        txtNombreEquipo.clear();
+        txtSiglas.clear();
+        txtCiudad.clear();
+        txtEstadio.clear();
+        txtLiga.clear();
+    }
+
+    public void seleccionarFila(MouseEvent mouseEvent) { //De momento no es necesario
     }
 }
 
