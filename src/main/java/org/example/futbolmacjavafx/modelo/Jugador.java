@@ -41,6 +41,7 @@ public class Jugador {
     public String getDorsal() { return dorsal; }
     public void setDorsal(String dorsal) { this.dorsal = dorsal; }
     public Equipo getEquipo() { return equipo; }
+
     public void setEquipo(Equipo equipo) { this.equipo = equipo; }
 
     @Override
